@@ -2,70 +2,90 @@
 
 import Link from "next/link";
 import type { NextPage } from "next";
-import { useAccount } from "wagmi";
-import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { Address } from "~~/components/scaffold-eth";
 
 const Home: NextPage = () => {
-  const { address: connectedAddress } = useAccount();
-
   return (
-    <>
-      <div className="flex items-center flex-col flex-grow pt-10">
-        <div className="px-5">
-          <h1 className="text-center">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Scaffold-ETH 2</span>
-          </h1>
-          <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row">
-            <p className="my-2 font-medium">Connected Address:</p>
-            <Address address={connectedAddress} />
+    <div className="min-h-screen bg-base-200">
+      <div className="container mx-auto px-4 py-32">
+        <div className="text-center mb-24">
+          <div className="animate-fade-in-down mt-8">
+            <h1 className="text-6xl font-bold mb-8 text-primary">
+              Welcome to HealthLink
+            </h1>
+            <p className="text-2xl mb-16 max-w-3xl mx-auto leading-relaxed">
+              A decentralized platform revolutionizing healthcare data management through blockchain technology
+            </p>
           </div>
 
-          <p className="text-center text-lg">
-            Get started by editing{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/nextjs/app/page.tsx
-            </code>
-          </p>
-          <p className="text-center text-lg">
-            Edit your smart contract{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              YourContract.sol
-            </code>{" "}
-            in{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/hardhat/contracts
-            </code>
-          </p>
-        </div>
-
-        <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
-          <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <BugAntIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Tinker with your smart contract using the{" "}
-                <Link href="/debug" passHref className="link">
-                  Debug Contracts
-                </Link>{" "}
-                tab.
-              </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
+            <div className="transform hover:scale-105 transition-transform duration-300">
+              <div className="card bg-base-100 p-8 shadow-xl hover:shadow-2xl">
+                <div className="text-4xl mb-4">🏥</div>
+                <h3 className="text-xl font-semibold mb-2">
+                  Medical Records
+                </h3>
+                <p>
+                  Secure storage and sharing of health data
+                </p>
+              </div>
             </div>
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Explore your local transactions with the{" "}
-                <Link href="/blockexplorer" passHref className="link">
-                  Block Explorer
-                </Link>{" "}
-                tab.
-              </p>
+
+            <div className="transform hover:scale-105 transition-transform duration-300">
+              <div className="card bg-base-100 p-8 shadow-xl hover:shadow-2xl">
+                <div className="text-4xl mb-4">🔒</div>
+                <h3 className="text-xl font-semibold mb-2">
+                  Privacy Shield
+                </h3>
+                <p>
+                  Advanced encryption and data protection
+                </p>
+              </div>
+            </div>
+
+            <div className="transform hover:scale-105 transition-transform duration-300">
+              <div className="card bg-base-100 p-8 shadow-xl hover:shadow-2xl">
+                <div className="text-4xl mb-4">🤖</div>
+                <h3 className="text-xl font-semibold mb-2">
+                  AI Diagnostics
+                </h3>
+                <p>
+                  Smart analysis of medical data
+                </p>
+              </div>
+            </div>
+
+            <div className="transform hover:scale-105 transition-transform duration-300">
+              <div className="card bg-base-100 p-8 shadow-xl hover:shadow-2xl">
+                <div className="text-4xl mb-4">💰</div>
+                <h3 className="text-xl font-semibold mb-2">
+                  Data Marketplace
+                </h3>
+                <p>
+                  Monetize anonymous health data
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
+              <Link
+                href="/dashboard"
+                className="btn btn-primary btn-lg"
+              >
+                Access Dashboard
+              </Link>
+              <Link
+                href="/records"
+                className="btn btn-secondary btn-lg"
+              >
+                Manage Records
+              </Link>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
